@@ -14,7 +14,4 @@ WORKDIR /bitbucket-server
 
 RUN npm install
 
-
-
-
 ENTRYPOINT ["npm", "start"]

@@ -37,7 +37,7 @@ export default function routes(app, addon) {
         httpClient.get('/2.0/user/', function (err, resp, data) {
             try {
                 data = JSON.parse(data);
-                res.render('connect-example', {
+                res.render('release', {
                     title: 'Atlassian Connect',
                     displayName: data.display_name,
                     repoPath: req.query.repoPath
