@@ -1,5 +1,5 @@
 {
-    "name": "my-app",
+    "name": "atlassian-connect-bitbucket",
     "version": "0.0.1",
     "private": true,
     "scripts": {
@@ -16,8 +16,9 @@
         "express": "^4.16.4",
         "express-hbs": "^2.1.2",
         "morgan": "^1.9.1",
-        "static-expiry": ">=0.0.5",
-        "sequelize": "^5.8.6"
+        "sequelize": "^5.8.6",
+        "sqlite3": "^4.2.0",
+        "static-expiry": ">=0.0.5"
     },
     "devDependencies": {
         "eslint": "^5.16.0"

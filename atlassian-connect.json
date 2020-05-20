@@ -1,10 +1,10 @@
 {
-    "key": "example-app",
-    "name": "Example App",
-    "description": "An example app for Bitbucket",
+    "key": "atlassian-connect-bitbucket",
+    "name": "XCritical PullRequest Version comprasion",
+    "description": "Release Viewer Addon",
     "vendor": {
-        "name": "Angry Nerds",
-        "url": "https://www.atlassian.com/angrynerds"
+        "name": "Mikhail Andreev",
+        "url": "https://github.com/tundraray"
     },
     "baseUrl": "{{localBaseUrl}}",
     "authentication": {
@@ -15,49 +15,22 @@
         "uninstalled": "/uninstalled"
     },
     "modules": {
-        "webhooks": [
-            {
-                "event": "*",
-                "url": "/webhook"
-            }
-        ],
-        "webItems": [
-            {
-                "url": "http://example.com?repoPath={repository.full_name}",
-                "name": {
-                    "value": "Example Web Item"
-                },
-                "location": "org.bitbucket.repository.navigation",
-                "key": "example-web-item",
-                "params": {
-                    "auiIcon": "aui-iconfont-link"
-                }
-            }
-        ],
-        "repoPages": [
-            {
-                "url": "/connect-example?repoPath={repository.full_name}",
-                "name": {
-                    "value": "Example Page"
-                },
-                "location": "org.bitbucket.repository.navigation",
-                "key": "example-repo-page",
-                "params": {
-                    "auiIcon": "aui-iconfont-doc"
-                }
-            }
-        ],
         "webPanels": [
             {
-                "url": "/connect-example?repoPath={repository.full_name}",
-                "name": {
-                    "value": "Example Web Panel"
+                "weight": 100,
+                "tooltip": {
+                    "value": "Packages to be released in this PR"
                 },
-                "location": "org.bitbucket.repository.overview.informationPanel",
-                "key": "example-web-panel"
+                "url": "/release?repoName={repository.full_name}&pullrequestid={pullrequest.id}&destinationhash={pullrequest.destination.commit.hash}&sourcehash={pullrequest.source.commit.hash}",
+                "name": {
+                    "value": "Release"
+                },
+                "location": "org.bitbucket.pullrequest.overview.informationPanel",
+                "key": "release-bitbucket-panel"
             }
         ]
     },
-    "scopes": ["account", "repository"],
-    "contexts": ["account"]
+    "scopes": [
+        "pullrequest"
+    ]
 }
